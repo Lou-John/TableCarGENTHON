@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <form class="form-inline d-flex justify-content-between">
+        <div class="input-group">
+          <input class="form-control" name="search" type="text" [(ngModel)]="filtre" placeholder="Recherche" aria-label="Search">
+        </div>
+        <button (click)="ajouterVoiture()" type="button" class="btn btn-success ml-2">Ajouter</button>
+      </form>
+    </div>
+  </nav>
+  
+
+<div class="conteneur-flex">
+    <table class="table table-dark ">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let voiture of voitures | filtreVoitures:filtre">
+            <td>{{ voiture.id }}</td>
+            <td>{{ voiture.marque }}</td>
+            <td>{{ voiture.modele }}</td>
+            <td><button (click)="afficherDetails(voiture)" type="button" class="btn btn-success">Détails</button>
+                <button (click)="supprimerVoiture(voiture)" type="button" class="btn btn-danger">Supprimer</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="voitureSelectionnee" class="card">
+        <button type="button" class="btn btn-secondary" (click)="fermerDetails()">Fermer</button>
+        <img [src]="'https://picsum.photos/300?random=' + voitureSelectionnee.id" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{ voitureSelectionnee.marque }} - {{ voitureSelectionnee.modele }}</h5>
+        </div>
+    </div>
+</div>
+  

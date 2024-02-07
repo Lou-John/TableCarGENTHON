@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container d-flex justify-content-center align-items-center">
+      <form class="form-inline">
+        <h3>Ajouter voiture</h3>
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Marque"
+          aria-label="Search"
+          [(ngModel)]="marque" [ngModelOptions]="{standalone: true}"
+        />
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Modèle"
+          aria-label="Search"
+          [(ngModel)]="modele" [ngModelOptions]="{standalone: true}"
+        />
+        <button (click)="ajouterVoiture()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Confirmer
+        </button>
+      </form>
+    </div>
+  </nav>
+  
